@@ -137,7 +137,7 @@
 /*	contact form
 ------------------------------------------------------*/
 
-   $('form#contactForm button.submit').click(function() {
+ $('form#contactForm button.submit').click(function() {
 
       $('#image-loader').fadeIn();
 
@@ -146,16 +146,15 @@
       var contactSubject = $('#contactForm #contactSubject').val();
       var contactMessage = $('#contactForm #contactMessage').val();
 
-      var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
-               '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
-
+	
+	 var content = 'name=' + contactName + '&email=' + contactEmail + '&message=' + contactSubject+'_'+contactMessage;
       $.ajax({
-
-	      type: "POST",
-	      url: "inc/sendEmail.php",
-	      data: data,
+	      method: "POST",
+	      url: "https://formspree.io/neeha.pokhrel@gmail.com",
+	      data: content,
+		  dataType: "json",
 	      success: function(msg) {
-
+debugger
             // Message was sent
             if (msg == 'OK') {
                $('#image-loader').fadeOut();
@@ -175,6 +174,7 @@
       });
       return false;
    });
+
 
 
 });
