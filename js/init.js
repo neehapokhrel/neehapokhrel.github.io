@@ -146,15 +146,43 @@
       var contactSubject = $('#contactForm #contactSubject').val();
       var contactMessage = $('#contactForm #contactMessage').val();
 
-	
+	  if (contactName=="" || contactName==null)
+	  {
+		  $('#image-loader').fadeOut();
+               $('#message-warning').html("Please Enter your Name");
+	            $('#message-warning').fadeIn();
+				return false;
+	  }
+	  if (contactEmail=="" || contactEmail==null)
+	  {
+		  $('#image-loader').fadeOut();
+               $('#message-warning').html("Please enter your email");
+	            $('#message-warning').fadeIn();
+				return false;
+	  }
+	  
+	  if (contactMessage=="" || contactMessage==null)
+	  {
+		  $('#image-loader').fadeOut();
+               $('#message-warning').html("Please write your message");
+	            $('#message-warning').fadeIn();
+				return false;
+	  }
+ $('#image-loader').fadeOut();
+               $('#message-warning').hide();
+               $('#contactForm').fadeOut();
+               $('#message-success').fadeIn();  
+		document.location = "mailto:"+contactEmail+"?subject="+contactSubject+"&body="+contactMessage;
+             
+		   
+/*
 	 var content = 'name=' + contactName + '&email=' + contactEmail + '&message=' + contactSubject+'_'+contactMessage;
       $.ajax({
 	      method: "POST",
-	      url: "https://formspree.io/neeha.pokhrel@gmail.com",
+	      url: "",
 	      data: content,
 		  dataType: "json",
 	      success: function(msg) {
-debugger
             // Message was sent
             if (msg == 'OK') {
                $('#image-loader').fadeOut();
@@ -171,9 +199,11 @@ debugger
 
 	      }
 
-      });
+      });*/
       return false;
    });
+   
+  
 
 
 
