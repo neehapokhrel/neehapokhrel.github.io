@@ -172,7 +172,8 @@
                $('#message-warning').hide();
                $('#contactForm').fadeOut();
                $('#message-success').fadeIn();  
-		document.location = "mailto:"+contactEmail+"?subject="+contactSubject+"&body="+contactMessage;
+			  var email="neeha.pokhel@gmail.com" 
+		document.location = "mailto:"+email+"?subject="+contactSubject+"&body="+contactMessage;
              
 		   
 /*
